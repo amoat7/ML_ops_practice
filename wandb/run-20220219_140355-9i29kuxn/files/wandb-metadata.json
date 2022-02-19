@@ -1,0 +1,27 @@
+{
+    "os": "Linux-4.4.0-19041-Microsoft-x86_64-with-glibc2.10",
+    "python": "3.8.5",
+    "heartbeatAt": "2022-02-19T04:04:01.475769",
+    "startedAt": "2022-02-19T04:03:55.158140",
+    "docker": null,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [
+        "--artifact_name=versioning",
+        "--input_file=zen.txt",
+        "--artifact_type=file",
+        "--artifact_description=file_versioning"
+    ],
+    "state": "running",
+    "program": "upload_artifact.py",
+    "codePath": "upload_artifact.py",
+    "git": {
+        "remote": "https://github.com/amoat7/ML_ops_practice.git",
+        "commit": "5c0d9c6cad66c4390dfe15059056032b28d86b6a"
+    },
+    "email": "amoat7@gmail.com",
+    "root": "/mnt/e/My Drive/Udacity_Projects/Practice/ML_ops_practice",
+    "host": "ax407-7069",
+    "username": "dave",
+    "executable": "/home/dave/anaconda3/bin/python"
+}

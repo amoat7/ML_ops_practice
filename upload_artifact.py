@@ -6,6 +6,7 @@ Description: Library to log artifacts to wandb.ai
 '''
 
 import argparse
+from ast import arguments
 import logging
 import pathlib
 import wandb
@@ -17,6 +18,7 @@ logging.basicConfig(
     filename='log.log',
     filemode="w"
 )
+logger = logging.getLogger()
 
 
 def track_artifacts(args):
@@ -28,7 +30,7 @@ def track_artifacts(args):
 
     Outputs: None
     '''
-    logging.info('Creating upload artifacts exercise')
+    logger.info('Creating upload artifacts exercise')
 
     with wandb.init(project="upload_artifact") as run:
         artifact = wandb.Artifact(
@@ -39,31 +41,31 @@ def track_artifacts(args):
         artifact.add_file(args.input_file)
         run.log_artifact(artifact)
 
-    if __name__ == "__main__":
-        parser = argparse.ArgumentParser(
-            description="Upload artifacts to W&B"
-        )
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Upload artifacts to W&B"
+    )
 
-        parser.add_argument(
-            "--input_file",
-            type=pathlib.Path,
-            help="Path to input file",
-            required=True)
+    parser.add_argument(
+        "--input_file",
+        type=pathlib.Path,
+        help="Path to input file",
+        required=True)
 
-        parser.add_argument(
-            "--artifact_name", type=str, help="Name of artifact", required=True
-        )
+    parser.add_argument(
+        "--artifact_name", type=str, help="Name of artifact", required=True
+    )
 
-        parser.add_argument(
-            "--artifact_type", type=str, help="Type of artifact", required=True
-        )
+    parser.add_argument(
+        "--artifact_type", type=str, help="Type of artifact", required=True
+    )
 
-        parser.add_argument(
-            "--artifact_description",
-            type=str,
-            help="Description of artifact",
-            required=True)
+    parser.add_argument(
+        "--artifact_description",
+        type=str,
+        help="Description of artifact",
+        required=True)
 
-        args = parser.parse_args()
+    arguemnts = parser.parse_args()
 
-        track_artifacts(args)
+    track_artifacts(arguments)
