@@ -7,10 +7,10 @@ Description: Library to log artifacts to wandb.ai
 
 import argparse
 import logging
-import pathlib 
-import wandb 
+import pathlib
+import wandb
 
-# logging config 
+# logging config
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)-15s - %(levelname)s - %(message)s",
@@ -18,13 +18,14 @@ logging.basicConfig(
     filemode="w"
 )
 
-def go(args):
+
+def track_artifacts(args):
     '''
     Upload artifacts function
 
-    Inputs: 
+    Inputs:
        args-  Argparser arguments
-    
+
     Outputs: None
     '''
     logging.info('Creating upload artifacts exercise')
@@ -44,8 +45,10 @@ def go(args):
         )
 
         parser.add_argument(
-            "--input_file", type=pathlib.Path, help="Path to input file", required=True
-        )
+            "--input_file",
+            type=pathlib.Path,
+            help="Path to input file",
+            required=True)
 
         parser.add_argument(
             "--artifact_name", type=str, help="Name of artifact", required=True
@@ -56,10 +59,11 @@ def go(args):
         )
 
         parser.add_argument(
-            "--artifact_description", type=str, help="Description of artifact", required=True
-        )
+            "--artifact_description",
+            type=str,
+            help="Description of artifact",
+            required=True)
 
         args = parser.parse_args()
 
-        go(args)
-
+        track_artifacts(args)
