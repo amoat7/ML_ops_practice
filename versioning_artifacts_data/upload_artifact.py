@@ -66,6 +66,6 @@ if __name__ == "__main__":
         help="Description of artifact",
         required=True)
 
-    arguemnts = parser.parse_args()
+    arguments = parser.parse_args()
 
     track_artifacts(arguments)
